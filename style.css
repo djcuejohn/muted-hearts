@@ -1,0 +1,191 @@
+/* ---------- tokens ---------- */
+:root{
+  --bg:#0E1018;
+  --surface:#171A26;
+  --surface-2:#1F2331;
+  --text:#EDEFF5;
+  --muted:#9AA1B5;
+  --accent:#4F6BFF;
+  --accent-2:#1FC99B;
+  --line:rgba(237,239,245,.12);
+  --radius:14px;
+  --shadow:0 18px 40px -22px rgba(0,0,0,.9);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.5;
+}
+img,video{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:30;
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  padding:14px clamp(16px,4vw,40px);
+  background:rgba(14,16,24,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.brand{
+  display:flex;align-items:center;gap:9px;
+  font-weight:700;font-size:20px;letter-spacing:-.02em;text-decoration:none;color:var(--text);
+}
+.brand-dot{width:12px;height:12px;border-radius:4px;background:var(--accent)}
+
+.search{flex:1;min-width:180px}
+.search input{
+  width:100%;max-width:380px;
+  padding:10px 14px;border-radius:999px;
+  background:var(--surface);border:1px solid var(--line);
+  color:var(--text);font-size:15px;
+}
+.search input::placeholder{color:var(--muted)}
+
+.filters{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.filters button{
+  padding:7px 15px;border-radius:999px;white-space:nowrap;
+  border:1px solid var(--line);color:var(--muted);font-size:14px;
+  transition:background .15s,color .15s,border-color .15s;
+}
+.filters button:hover{color:var(--text)}
+.filters button[aria-pressed="true"]{
+  background:var(--accent);border-color:var(--accent);color:#fff;
+}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(36px,7vw,72px) clamp(16px,4vw,40px) 22px;max-width:760px}
+.hero h1{margin:0 0 10px;font-size:clamp(28px,5vw,44px);letter-spacing:-.03em;line-height:1.1}
+.hero p{margin:0;color:var(--muted);font-size:clamp(15px,2vw,17px)}
+
+/* ---------- grid ---------- */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(270px,1fr));
+  gap:20px;
+  padding:14px clamp(16px,4vw,40px) 48px;
+}
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  text-align:left;
+  transition:transform .18s ease, border-color .18s ease;
+}
+.card:hover{transform:translateY(-3px);border-color:rgba(79,107,255,.5);box-shadow:var(--shadow)}
+.thumb{position:relative;aspect-ratio:16/9;background:var(--surface-2);overflow:hidden}
+.thumb img,.thumb video{width:100%;height:100%;object-fit:cover}
+
+/* preview video sits on top of the poster and fades in once it is playing */
+.thumb video{position:absolute;inset:0;opacity:0;transition:opacity .28s ease}
+.card.previewing .thumb video{opacity:1}
+
+/* episode badge */
+.ep{
+  position:absolute;left:8px;top:8px;z-index:2;
+  background:var(--accent);color:#fff;
+  font-size:11.5px;font-weight:700;letter-spacing:.02em;
+  padding:3px 9px;border-radius:6px;
+  box-shadow:0 2px 10px rgba(0,0,0,.35);
+}
+
+.time{
+  position:absolute;right:8px;bottom:8px;z-index:2;
+  background:rgba(10,12,18,.82);color:#fff;
+  font-size:12px;padding:2px 7px;border-radius:5px;
+  font-variant-numeric:tabular-nums;
+}
+.play{
+  position:absolute;inset:0;display:grid;place-items:center;z-index:2;
+  opacity:0;transition:opacity .2s;
+}
+.card:hover .play{opacity:1}
+.card.previewing .play{opacity:0}          /* get out of the way once it plays */
+.play span{
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(14,16,24,.65);display:grid;place-items:center;
+  color:#fff;font-size:18px;padding-left:4px;
+}
+
+/* spinner while the preview buffers */
+.card.loading .thumb::after{
+  content:"";position:absolute;left:50%;top:50%;z-index:3;
+  width:26px;height:26px;margin:-13px 0 0 -13px;
+  border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;
+  animation:spin .7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* a clip whose file is missing keeps the poster and drops the play icon */
+.card.missing .play{opacity:.25}
+
+.card-body{padding:13px 14px 15px}
+.eyebrow{
+  display:block;margin-bottom:3px;
+  font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--accent-2);
+}
+.card-body h3{margin:0 0 4px;font-size:16px;letter-spacing:-.01em}
+.card-body p{margin:0;color:var(--muted);font-size:13.5px}
+.badge{
+  display:inline-block;margin-top:9px;
+  font-size:11.5px;color:var(--accent-2);
+  border:1px solid rgba(31,201,155,.4);border-radius:999px;padding:2px 9px;
+}
+
+.empty{text-align:center;color:var(--muted);padding:40px 20px 70px}
+
+/* ---------- footer ---------- */
+.foot{
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  padding:20px clamp(16px,4vw,40px) 34px;
+  border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;
+}
+.link{color:var(--accent);text-decoration:underline}
+
+/* ---------- player ---------- */
+.modal{
+  position:fixed;inset:0;z-index:50;
+  display:grid;place-items:center;
+  background:rgba(6,7,12,.82);
+  padding:16px;
+}
+.modal[hidden]{display:none}
+.modal-box{
+  width:min(920px,100%);
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;position:relative;
+  box-shadow:var(--shadow);
+}
+.modal-box video{width:100%;aspect-ratio:16/9;background:#000}
+.close{
+  position:absolute;top:8px;right:10px;z-index:2;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(10,12,18,.7);color:#fff;font-size:24px;line-height:1;
+}
+.modal-meta{padding:16px 18px 20px}
+.modal-meta h2{margin:0 0 6px;font-size:20px;letter-spacing:-.02em}
+.modal-meta p{margin:0;color:var(--muted);font-size:14.5px;max-width:65ch}
+.modal-nav{display:flex;gap:10px;margin-top:16px}
+.btn{padding:9px 18px;border-radius:999px;background:var(--accent);color:#fff;font-size:14px;font-weight:600}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text);font-weight:400}
+
+@media (max-width:620px){
+  .grid{grid-template-columns:1fr;gap:16px}
+  .topbar{gap:10px}
+  .card:hover{transform:none}
+  .play{opacity:1}           /* touch devices: always show the play icon */
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}

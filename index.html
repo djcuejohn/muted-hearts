@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reelbox — short video clips</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-dot"></span>CCD Reelbox</a>
+
+  <div class="search">
+    <input type="search" id="search" placeholder="Search clips" aria-label="Search clips">
+  </div>
+
+  <nav class="filters" id="filters" aria-label="Filter by category"></nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Muted Hearts: The CCD Love Affair</h1>
+    <p>A short tele-drama series that captures the intrigue of Norma and Larry’s secret romance inside the corporate world of Wipro’s CCD account for UnitedHealthcare.</p>
+  </section>
+
+  <section class="grid" id="grid" aria-live="polite"></section>
+
+  <p class="empty" id="empty" hidden>Nothing matches that search. Try a different word or clear the filter.</p>
+</main>
+
+<footer class="foot">
+  <span>Season 1 - Episode 1 to 12.</span>
+  <button id="toTop" class="link">Back to top</button>
+</footer>
+
+<!-- Player -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+  <div class="modal-box">
+    <button class="close" id="close" aria-label="Close player">&times;</button>
+    <video id="player" controls playsinline preload="metadata"></video>
+    <div class="modal-meta">
+      <h2 id="modalTitle"></h2>
+      <p id="modalDesc"></p>
+      <div class="modal-nav">
+        <button id="prev" class="btn ghost">Previous</button>
+        <button id="next" class="btn">Next clip</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
