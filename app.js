@@ -5,18 +5,18 @@
    ========================================================= */
 
 const CLIPS = [
-  { id:1,  episode:1,  title:"Whispers Beyond the Call",   desc:"Whispers Beyond the Call",                                   category:"Animation", src:"videos/Colleagues1.mp4",   poster:"images/colleagues1.jpg",   length:"9:56" },
-  { id:2,  episode:2,  title:"Elephants Dream",            desc:"Two characters explore a strange machine world.",            category:"Animation", src:"videos/masaherequest.mp4", poster:"images/masaherequest.jpg", length:"9:56" },
-  { id:3,  episode:3,  title:"For Bigger Blazes",          desc:"A short spot about getting more out of a small screen.",     category:"Short",     src:"videos/gutomgirl.mp4",     poster:"images/gutomgirl.jpg",     length:"9:56" },
-  { id:4,  episode:4,  title:"For Bigger Escapes",         desc:"Rainy day, sofa, and a much bigger picture.",                category:"Short",     src:"videos/wjv1.mp4",          poster:"images/wjv1.jpg",          length:"9:56" },
-  { id:5,  episode:5,  title:"For Bigger Fun",             desc:"Fifteen seconds of very deliberate silliness.",              category:"Short",     src:"videos/wjv2.mp4",          poster:"images/wjv2.jpg",          length:"9:56" },
-  { id:6,  episode:6,  title:"For Bigger Joyrides",        desc:"An action trailer squeezed into a quarter of a minute.",     category:"Short",     src:"videos/wjv3.mp4",          poster:"images/wjv3.jpg",          length:"9:56" },
-  { id:7,  episode:7,  title:"Sintel",                     desc:"A girl searches for the dragon she raised.",                 category:"Animation", src:"videos/wjv4.mp4",          poster:"images/wjv4.jpg",          length:"9:56" },
-  { id:8,  episode:8,  title:"Tears of Steel",             desc:"Live action and effects, shot in Amsterdam.",                category:"Film",      src:"videos/overtime1.mp4",     poster:"images/overtime1.jpg",     length:"9:56" },
-  { id:9,  episode:9,  title:"Volkswagen GTI Review",      desc:"A hot hatch put through its paces.",                         category:"Clips",     src:"videos/call1.mp4",         poster:"images/call1.jpg",         length:"9:56" },
-  { id:10, episode:10, title:"Subaru Outback",             desc:"Street and dirt, back to back.",                             category:"Clips",     src:"videos/sigetanaw1.mp4",    poster:"images/sigetanaw1.jpg",    length:"9:56" },
-  { id:11, episode:11, title:"We Are Going On Bullrun",    desc:"Road trip footage from the rally.",                          category:"Clips",     src:"videos/chat1.mp4",         poster:"images/chat1.jpg",         length:"9:56" },
-  { id:12, episode:12, title:"What Car Can You Get",       desc:"A short look at what a small budget buys.",                  category:"Clips",     src:"videos/chat2.mp4",         poster:"images/chat2.jpg",         length:"9:56" }
+  { id:1,  episode:1,  title:"Hilom nga Gugma, Sagbayan nga Tinago",   desc:"Hilom nga Gugma, Sagbayan nga Tinago",                                   category:"Animation", src:"videos/Colleagues1.mp4",   poster:"images/colleagues1.jpg",   length:"9:56" },
+  { id:2,  episode:2,  title:"Kuyog Lang, Dili Seryoso",            desc:"Kuyog Lang, Dili Seryoso",            category:"Animation", src:"videos/masaherequest.mp4", poster:"images/masaherequest.jpg", length:"9:56" },
+  { id:3,  episode:3,  title:"Gutom sa Kasingkasing, Gutom sa Tiyan",          desc:"Gutom sa Kasingkasing, Gutom sa Tiyan",     category:"Short",     src:"videos/gutomgirl.mp4",     poster:"images/gutomgirl.jpg",     length:"9:56" },
+  { id:4,  episode:4,  title:"Check‑In Confidential",         desc:"Check‑In Confidential",                category:"Short",     src:"videos/wjv1.mp4",          poster:"images/wjv1.jpg",          length:"9:56" },
+  { id:5,  episode:5,  title:"Room 143: WJV Inn",             desc:"Room 143: WJV Inn",              category:"Short",     src:"videos/wjv2.mp4",          poster:"images/wjv2.jpg",          length:"9:56" },
+  { id:6,  episode:6,  title:"Do Not Disturb: Norma & Larry",        desc:"Do Not Disturb: Norma & Larry",     category:"Short",     src:"videos/wjv3.mp4",          poster:"images/wjv3.jpg",          length:"9:56" },
+  { id:7,  episode:7,  title:"Late Shift, Early Check‑In",                     desc:"Late Shift, Early Check‑In",                 category:"Animation", src:"videos/wjv4.mp4",          poster:"images/wjv4.jpg",          length:"9:56" },
+  { id:8,  episode:8,  title:"Overtime",             desc:"Overtime",                category:"Film",      src:"videos/overtime1.mp4",     poster:"images/overtime1.jpg",     length:"9:56" },
+  { id:9,  episode:9,  title:"Tawag sa gugmang walay pahulay",      desc:"Tawag sa gugmang walay pahulay",                         category:"Clips",     src:"videos/call1.mp4",         poster:"images/call1.jpg",         length:"9:56" },
+  { id:10, episode:10, title:"Unlimited tan-aw",             desc:"Unlimited tan-aw",                             category:"Clips",     src:"videos/sigetanaw1.mp4",    poster:"images/sigetanaw1.jpg",    length:"9:56" },
+  { id:11, episode:11, title:"Cheat-chat",    desc:"Cheat-chat",                          category:"Clips",     src:"videos/chat1.mp4",         poster:"images/chat1.jpg",         length:"9:56" },
+  { id:12, episode:12, title:"Cheat-chat 2",       desc:"Cheat-chat 2",                  category:"Clips",     src:"videos/chat2.mp4",         poster:"images/chat2.jpg",         length:"9:56" }
 ];
 
 /* Season label used in the episode badge and player heading */
